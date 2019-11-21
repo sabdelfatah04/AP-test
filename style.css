@@ -6,12 +6,42 @@ html{
     margin: 0;
     padding: 0;
 }
+body{
+    background-image: url(backgroud2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .title{
     text-align: center;
-    font-size: 4rem;
-    margin-bottom: 5rem;
+    font-size: 7rem;
+    margin-top: 6rem;
+    margin-bottom: 12rem;
+    font-family: 'Calistoga', cursive;
+    color:black;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0  #fff,
+    -1px 1px 0  #fff,
+    1px 1px 0  #fff;
+}
+.quiz {
+    margin: 5rem;
+    height: 70vh;
 }
 .quiz-title{
     text-align: center;
     font-size: 3rem;
+    color: white;
+}
+.btn{
+    font-size: 10rem;
+    margin-top: 20rem;
+}
+.leftbtn{
+    float:left;
+    margin-left: 40rem;
+}
+.rightbtn{
+    float:right;
+    margin-right: 40rem;
 }
