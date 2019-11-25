@@ -1,5 +1,10 @@
-const question1 = [red, green];
-const question2 = [desert, field];
-const question3 = [three, four];
-const question4 = [big, small];
-const question5 = [walk, jump];
+function quiz() {
+
+    btn1 = document.getElementById('btn1');
+    btn2 = document.getElementById('btn2');
+
+    questions = [[red, green], [desert, field], [three, four], [big, small],[jump, walk]],
+    
+    answers = [0,0,1,1,0]
+
+}
