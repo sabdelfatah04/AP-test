@@ -24,7 +24,7 @@ body{
     -1px 1px 0  #fff,
     1px 1px 0  #fff;
 }
-.quiz {
+#quiz {
     margin: 5rem;
     height: 70vh;
 }

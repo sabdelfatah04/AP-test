@@ -1,4 +1,4 @@
-const questions = [
+const martianQuestions = [
     {   statement: "Choose a color?",
         choice: {
             a: "red", 
@@ -40,9 +40,49 @@ const questions = [
     }
 ]
 
-const score = 0;
-
-function quiz() {
+function quiz(questions, quizBlock, scoreBlock) {
+    function displayQuiz(questions, quizBlock){
+    }
+    function displayScore(questions, quizBlock, scoreBlock){
+    }
+    displayQuestions(questions, quizBlock){
+    }
+    function showQuiz(questions, quizBlock){
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const btn1 = document.getElementById('btn1');
+const btn2 = document.getElementById('btn2');
