@@ -39,8 +39,66 @@ const martianQuestions = [
         correctChoice: "a"
     }
 ]
+class quiz {
+    addmartianquiz(space) {
+  
+        let html = '<p class="quiz-title"> Question:</p><div id="questions"></div><div class="answer"><p class="quiz-title">Choose One:</p><div class="leftbtn"><button id="btn1" class="btn"></button></div><div class="rightbtn"><button id="btn2" class="btn"></button></div></div>';
+       
+        let 
+        newHtml = newHtml.replace('%questions%', martianQuestions.statement);
+        newHtml = newHtml.replace('%btn1%', martianQuestions.choice.a);
+        newHtml = newHtml.replace('%discovered%', martianQuestions.choice.b);
+        document.querySelector(".quiz").insertAdjacentHTML('beforeend', newHtml);
+      }
+}
+document.getElementById('quiz').addEventListener('submit', function(e) {
 
-function quiz(questions, quizBlock, scoreBlock) {
+  
+    const questions = document.getElementById("questions");
+    const btn1 = document.getElementById("btn1");
+    const btn2 = document.getElementById("btn2");
+
+    //console.log(element);
+  
+    const quiz = new Quiz();
+    console.log(quiz);
+   if (btn1 ==='' || btn2 ==='' ||){
+      alert ('Error: Choose One Please')
+    } else {
+    quiz.addmartianquestions(space);
+     }
+  e.preventDefault();
+  });
+  
+  document.querySelector(".quiz").addEventListener("click", function(e){
+    const quiz = new Quiz();
+    e.preventDefault();
+  }
+  )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function quiz(questions, quizBlock, scoreBlock) {
     function displayQuiz(questions, quizBlock){
     }
     function displayScore(questions, quizBlock, scoreBlock){
@@ -52,7 +110,7 @@ function quiz(questions, quizBlock, scoreBlock) {
 
 
 }
-
+ */
 
 
 
