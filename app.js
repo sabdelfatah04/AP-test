@@ -40,7 +40,7 @@ const martianQuestions = [
     }
 ]
 class quiz {
-    addmartianquiz(space) {
+    addmartianquiz(i) {
   
         let html = '<p class="quiz-title"> Question:</p><div id="questions"></div><div class="answer"><p class="quiz-title">Choose One:</p><div class="leftbtn"><button id="btn1" class="btn"></button></div><div class="rightbtn"><button id="btn2" class="btn"></button></div></div>';
        
@@ -51,7 +51,7 @@ class quiz {
         document.querySelector(".quiz").insertAdjacentHTML('beforeend', newHtml);
       }
 }
-document.getElementById('quiz').addEventListener('submit', function(e) {
+/* document.getElementById('quiz').addEventListener('submit', function(e) {
 
   
     const questions = document.getElementById("questions");
@@ -74,15 +74,9 @@ document.getElementById('quiz').addEventListener('submit', function(e) {
     const quiz = new Quiz();
     e.preventDefault();
   }
-  )
+  ) */
 
-
-
-
-
-
-
-
+console.log(martianQuestions.statement[0]);
 
 
 
