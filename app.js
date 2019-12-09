@@ -1,4 +1,3 @@
-
 const quiz = document.getElementById("quiz")
 const questionBlock = document.getElementById("question-block")
 const questions = document.getElementById("questions")
@@ -9,11 +8,14 @@ const startButton = document.getElementById("start-btn")
 const nextButton = document.getElementById("next-btn")
 const submitButton = document.getElementById("submit-btn")
 const scoreBlock = document.getElementById("score-block")
+let result = 0
+let quizanswer;
 
 let randomOrder, currentOrder
 
 startButton.addEventListener('click', begin)
 nextButton.addEventListener('click', ()=> {
+    calculate()
     currentOrder++
     next()
 })
@@ -24,11 +26,17 @@ function begin() {
     questionBlock.classList.remove('hide')
     randomOrder = martianQuestions.sort(() => Math.random() - .5)
     currentOrder = 0 
-    result = 0
-    next()
+    start()
 }
+
+function start(){
+    reset()
+    displayQuestion(randomOrder[currentOrder])
+}
+
 function next(){
     reset()
+    calculate(quizanswer)
     displayQuestion(randomOrder[currentOrder])
 }
 function displayQuestion(martianQuestions){
@@ -52,6 +60,7 @@ function reset() {
 }
 
 function selectAnswer(e) {
+    quizanswer = e.target.innerText
     if (randomOrder.length > currentOrder + 1){
        nextButton.classList.remove('hide') 
     } else {
@@ -59,21 +68,25 @@ function selectAnswer(e) {
         submitButton.classList.remove('hide')
     }
 }
+function calculate(answer) {
+    console.log(martianQuestions[currentOrder].option.find(x => {
+        console.log(answer)
+    }))
+    if (martianQuestions[currentOrder].option.find(x => x.choice == quizanswer)) {
+       result++;
+       console.log('correct')
+    }
+}
 function score() {
     quiz.classList.add('hide')
     scoreBlock.classList.remove('hide')
     var display;
-    if (calculate >= 3) {
+    if (calculate() >= 3) {
         display ='Martian';
     } else {
         display = 'Human';
     }
     document.getElementById("display").innerHTML = display;
-}
-function calculate() {
-    if (selectedAnswer = martianQuestions.option.correct) {
-        result++
-    }
 }
 
 
