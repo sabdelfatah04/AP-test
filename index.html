@@ -5,29 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
-    <title>AP-App</title>
+    <title>Document</title>
 </head>
 <body>
     <div class="title">
         <p>Are You A Martian?</p>
     </div>
     <div id="quiz">
-        <!-- <p class="quiz-title"> Question:</p>
-         <div id="questions"></div> 
-        <div class="answer">
-            <p class="quiz-title">Choose One:</p>
-             <div class="leftbtn">
-                <button id="btn1" class="btn"></button>
-            </div>
-            <div class="rightbtn">
-                <button id="btn2" class="btn"></button>
-            </div>
-        </div> -->
-        <input type="submit" value="Submit">
+         <div id="question-block" class="hide">
+             <div id="questions" class="answer-title">
+            </div> 
+        
+        <div id="answer" class="answer">
+            <p class="answer-title">Choose One:</p>
+                <button id="btn1" class="leftbtn btn"> Btn1 </button>
+                <button id="btn2" class="righhtbtn btn"> Btn2 </button>
+        </div>
+    </div>  
+    <div class="work-btn">
+        <button id="start-btn" class="move-btn"> Start</button>
+        <button id="next-btn" class="move-btn hide"> Next</button>
+        <button id="submit-btn" class="move-btn hide"> Am I A Martian</button>
     </div>
-
-
-
+    </div>
+    <div id="score-block" class="score hide">
+        <p id="display" class="answer-title"> You are</p>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

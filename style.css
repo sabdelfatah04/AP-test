@@ -28,20 +28,37 @@ body{
     margin: 5rem;
     height: 70vh;
 }
-.quiz-title{
+.answer-title{
     text-align: center;
     font-size: 3rem;
     color: white;
 }
 .btn{
     font-size: 10rem;
-    margin-top: 20rem;
+    margin-top: 20rem; 
+    background-color: white;
 }
-.leftbtn{
+ .leftbtn{
     float:left;
     margin-left: 40rem;
 }
 .rightbtn{
     float:right;
     margin-right: 40rem;
+} 
+.work-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.move-btn{
+    font-size: 10rem;
+    background-color: #cc0000;
+    color: white;
+    border: none;
+    padding: 1rem;
+    
+}
+.hide{
+    display: none;
 }

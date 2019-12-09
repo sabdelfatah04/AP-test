@@ -1,140 +1,116 @@
+
+const quiz = document.getElementById("quiz")
+const questionBlock = document.getElementById("question-block")
+const questions = document.getElementById("questions")
+const answer = document.getElementById("answer")
+const btn1 = document.getElementById("btn1")
+const btn2 = document.getElementById("btn2")
+const startButton = document.getElementById("start-btn")
+const nextButton = document.getElementById("next-btn")
+const submitButton = document.getElementById("submit-btn")
+const scoreBlock = document.getElementById("score-block")
+
+let randomOrder, currentOrder
+
+startButton.addEventListener('click', begin)
+nextButton.addEventListener('click', ()=> {
+    currentOrder++
+    next()
+})
+
+
+function begin() {
+    startButton.classList.add('hide')
+    questionBlock.classList.remove('hide')
+    randomOrder = martianQuestions.sort(() => Math.random() - .5)
+    currentOrder = 0 
+    result = 0
+    next()
+}
+function next(){
+    reset()
+    displayQuestion(randomOrder[currentOrder])
+}
+function displayQuestion(martianQuestions){
+    questions.innerText = martianQuestions.statement
+    martianQuestions.option.forEach(option => {
+        const button = document.createElement('button')
+        button.innerText = option.choice
+        button.classList.add('btn')
+        if (answer.correct) {
+            button.dataset.correct = answer.correct
+        }
+        button.addEventListener('click', selectAnswer)
+        answer.appendChild(button)
+    })
+}
+function reset() {
+    nextButton.classList.add('hide')
+    while (answer.firstChild) {
+        answer.removeChild(answer.firstChild)
+    }
+}
+
+function selectAnswer(e) {
+    if (randomOrder.length > currentOrder + 1){
+       nextButton.classList.remove('hide') 
+    } else {
+        submitButton.addEventListener('click', score)
+        submitButton.classList.remove('hide')
+    }
+}
+function score() {
+    quiz.classList.add('hide')
+    scoreBlock.classList.remove('hide')
+    var display;
+    if (calculate >= 3) {
+        display ='Martian';
+    } else {
+        display = 'Human';
+    }
+    document.getElementById("display").innerHTML = display;
+}
+function calculate() {
+    if (selectedAnswer = martianQuestions.option.correct) {
+        result++
+    }
+}
+
+
+
 const martianQuestions = [
     {   statement: "Choose a color?",
-        choice: {
-            a: "red", 
-            b: "green"
-        },
-        correctChoice: "a"
-    },
+        option: [
+            {choice: "red", correct: true },
+            {choice: "green", correct: false}
+        ],
+    } ,
     {
         statement: "Which landscape?",
-        choice: {
-            a: "desert", 
-            b: "field"
-        },
-        correctChoice: "a"
+        option: [
+            {choice: "desert", correct: true },
+            {choice: "field", correct: false}
+        ],
     },
     {
         statement: "Where are you?",
-        choice: {
-            a: "three", 
-            b: "four"
-        },
-        correctChoice: "b"
+        option: [
+            {choice: "three", correct: false },
+            {choice: "four", correct: true}
+        ],
     },
     {
         statement: "Choose a size?",
-        choice: {
-            a: "big", 
-            b: "small"
-        },
-        correctChoice: "b"
+        option: [
+            {choice: "small", correct: true },
+            {choice: "big", correct: false}
+        ],
     },
     {
-        statement: "How do you walk?",
-        choice: {
-            a: "jump", 
-            b: "walk"
-        },
-        correctChoice: "a"
+        statement: "How do you move?",
+        option: [
+            {choice: "walk", correct: false },
+            {choice: "jump", correct: true}
+        ],
     }
 ]
-class quiz {
-    addmartianquiz(i) {
-  
-        let html = '<p class="quiz-title"> Question:</p><div id="questions"></div><div class="answer"><p class="quiz-title">Choose One:</p><div class="leftbtn"><button id="btn1" class="btn"></button></div><div class="rightbtn"><button id="btn2" class="btn"></button></div></div>';
-       
-        let 
-        newHtml = newHtml.replace('%questions%', martianQuestions.statement);
-        newHtml = newHtml.replace('%btn1%', martianQuestions.choice.a);
-        newHtml = newHtml.replace('%discovered%', martianQuestions.choice.b);
-        document.querySelector(".quiz").insertAdjacentHTML('beforeend', newHtml);
-      }
-}
-/* document.getElementById('quiz').addEventListener('submit', function(e) {
-
-  
-    const questions = document.getElementById("questions");
-    const btn1 = document.getElementById("btn1");
-    const btn2 = document.getElementById("btn2");
-
-    //console.log(element);
-  
-    const quiz = new Quiz();
-    console.log(quiz);
-   if (btn1 ==='' || btn2 ==='' ||){
-      alert ('Error: Choose One Please')
-    } else {
-    quiz.addmartianquestions(space);
-     }
-  e.preventDefault();
-  });
-  
-  document.querySelector(".quiz").addEventListener("click", function(e){
-    const quiz = new Quiz();
-    e.preventDefault();
-  }
-  ) */
-
-console.log(martianQuestions.statement[0]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* function quiz(questions, quizBlock, scoreBlock) {
-    function displayQuiz(questions, quizBlock){
-    }
-    function displayScore(questions, quizBlock, scoreBlock){
-    }
-    displayQuestions(questions, quizBlock){
-    }
-    function showQuiz(questions, quizBlock){
-    }
-
-
-}
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const btn1 = document.getElementById('btn1');
-const btn2 = document.getElementById('btn2');
