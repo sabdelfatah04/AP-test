@@ -15,8 +15,6 @@ let randomOrder, currentOrder
 
 startButton.addEventListener('click', begin)
 nextButton.addEventListener('click', ()=> {
-    calculate()
-    currentOrder++
     next()
 })
 
@@ -35,9 +33,11 @@ function start(){
 }
 
 function next(){
-    reset()
     calculate(quizanswer)
+    currentOrder++
+    reset()
     displayQuestion(randomOrder[currentOrder])
+    
 }
 function displayQuestion(martianQuestions){
     questions.innerText = martianQuestions.statement
@@ -61,27 +61,34 @@ function reset() {
 
 function selectAnswer(e) {
     quizanswer = e.target.innerText
+    console.log(quizanswer)
     if (randomOrder.length > currentOrder + 1){
        nextButton.classList.remove('hide') 
     } else {
-        submitButton.addEventListener('click', score)
+        submitButton.addEventListener('click', () => {
+            calculate(quizanswer)
+            score()
+            
+        })
         submitButton.classList.remove('hide')
     }
 }
 function calculate(answer) {
-    console.log(martianQuestions[currentOrder].option.find(x => {
-        console.log(answer)
-    }))
-    if (martianQuestions[currentOrder].option.find(x => x.choice == quizanswer)) {
+    if (martianQuestions[currentOrder].option.find(x => {
+        if (x.choice == answer) {
+            return x.correct
+        }
+    })) {
        result++;
-       console.log('correct')
+       console.log('correct', result)
     }
 }
 function score() {
+    console.log(result)
     quiz.classList.add('hide')
     scoreBlock.classList.remove('hide')
     var display;
-    if (calculate() >= 3) {
+    if (result >= 3) {
         display ='Martian';
     } else {
         display = 'Human';
@@ -106,7 +113,7 @@ const martianQuestions = [
         ],
     },
     {
-        statement: "Where are you?",
+        statement: "Choose a Number",
         option: [
             {choice: "three", correct: false },
             {choice: "four", correct: true}
