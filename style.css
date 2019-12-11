@@ -35,17 +35,16 @@ body{
 }
 .btn{
     font-size: 10rem;
-    margin-top: 20rem; 
-    background-color: white;
+    margin-top: 10rem; 
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80rem;
+    border-radius: 3rem;
+    padding: 3rem;
 }
- .leftbtn{
-    float:left;
-    margin-left: 40rem;
-}
-.rightbtn{
-    float:right;
-    margin-right: 40rem;
-} 
 .work-btn{
     display: flex;
     justify-content: center;
